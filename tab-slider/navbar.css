@@ -1,0 +1,148 @@
+.scroll-container{  
+   position : relative;   
+   z-index:1;
+}
+.scroll-container.active{
+   padding: 0 36px;  
+}
+.scroll-crop {
+   border : 1px solid #ddd;   
+   border-bottom : none;
+   overflow : hidden;
+   height : 59px;
+   background-color: #eef0f2;
+}
+.scroll-container.active .scroll-crop{ 
+   border-right : none;
+   border-left : none;
+}
+.scroll {
+   display : inline-block;      
+   width : auto;   
+   border:none;
+   transition: 0.3s;
+   white-space : nowrap;
+}
+.scroll.active{
+   display : inline-block;
+}
+.scroll-container .scroll-left:before,
+.scroll-container .scroll-right:before {
+   position : absolute;   
+   font-family: 'VSD-icons';   
+   z-index : 10;
+   padding : 20px 10px;
+   background-color: #ddd;
+   font-style:normal;
+}
+.scroll-container.active .scroll-left:before{
+   content: "\e604";
+   left : 0;
+}
+.scroll-container.active .scroll-right:before{
+   content: "\e603";
+   right : 0;
+}
+.scroll-container .scroll-left.active:before,
+.scroll-container .scroll-right.active:before {
+   background-color: #0060c7;
+   color : #fff;
+   cursor : pointer;
+}
+.scroll .filter,.scroll-selected{
+   display : inline-block;
+   padding : 20px;   
+   border-right : 1px solid #ddd;   
+   cursor : pointer;
+   position : relative;   
+}
+.scroll .filter:not(:first-child){
+   margin-left : -4px;
+}
+.scroll .filter.active{
+   background-color : #fff;
+}
+.scroll-selected{
+   background-color:#fff;   
+}
+.scroll-selected:before{
+    position: absolute;
+    font-family: 'VSD-icons';
+    z-index: 10;
+    padding: 21px;
+    background-color: #0060c7;
+    color : #fff;
+    content: "\e601";
+    right: 0;
+    top: 0;
+}
+.scroll .filter.active:before{
+    content: "";
+    background: red;
+    width: 46px;
+    height: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -23px;
+}
+.scroll-selected{
+   display : none;
+}
+@media (max-width: 480px){
+   .scroll-container,.scroll-container.active{ 
+      padding : 30px;
+      border: 1px solid #ddd;
+      border-bottom: none;
+   }
+   .scroll-container .scroll-left:before,
+   .scroll-container .scroll-right:before {
+      display : none;
+   }
+   .scroll .filter,.scroll-selected{
+      display : block;
+      line-height : normal; 
+      text-align : center;     
+      padding : 19px;
+      border-right : none;
+      margin-left : 0;
+      border-top:1px solid #ddd;
+   }
+   .scroll-selected{
+      border-top : none; 
+      border-left : 1px solid #ddd;
+   }
+   .scroll .filter.active{
+      background: #fff;
+   }   
+   .scroll .filter.active:before{
+       content: "";
+       background: red;
+       width: 6px;
+       height: 20px;
+       position: absolute;
+       top: 50%;
+       left: 0;
+       margin-left : 0;
+       margin-top : -10px;
+   }
+   .scroll-crop{
+      overflow : visible;
+   }
+   .scroll{
+      background: #eef0f2;      
+      display : block;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;      
+      display: none;
+      transition: none;
+      margin-left:0!important;
+   }
+   .scroll.active {
+      display:block;
+   }
+   .scroll .filter:not(:first-child){
+      margin-left : 0px;
+   }
+}
